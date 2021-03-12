@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App > h1 {
+  display: flex;
+  justify-content: center;
+  color: brown;
+  
+}
+
+.line {
+  width: 1000px;
+  height: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px;
+  background-color: #000000;
+}
+
+
+
+
+/* table.js */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

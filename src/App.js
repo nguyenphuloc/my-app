@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Form from "./Form";
+import Table from "./Table";
+export default class App extends React.Component {
+  constructor(prop) {
+    super(prop);
+    this.state = {
+      userInfor: {
+        name: "",
+        age: "",
+        phoneNumber: "",
+        email: ""
+      },
+      listUser: [],
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(user){
+    this.setState({
+      ...this.state,
+      listUser: [...this.state.listUser, user]
+    })
+  }
+
+  render() {
+    console.log(this.state.listUser);
+    return (
+      <div className="App">
+        <h1>Quản Lý Sinh Viên</h1>
+        <div className="line"></div>
+        <div className="content">
+          <Form submit={this.handleSubmit} />
+        </div>
+        <div className="table">
+          <Table listUser = {this.state.listUser} />
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
